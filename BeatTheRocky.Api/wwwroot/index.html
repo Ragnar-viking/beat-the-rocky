@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beat The Rocky - The Undefeated Tic-Tac-Toe Champion</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Top Navigation & Audio Control -->
+        <div class="top-controls">
+            <span class="badge-tag">⚡ Unbeatable AI</span>
+            <button id="soundToggleBtn" class="icon-btn" title="Toggle Sound FX">
+                <span id="soundIcon">🔊</span> <span id="soundText">Sound ON</span>
+            </button>
+        </div>
+
+        <!-- Header -->
+        <header>
+            <div class="title-wrap">
+                <span class="glove-icon">🥊</span>
+                <h1>Beat The Rocky</h1>
+                <span class="glove-icon">🥊</span>
+            </div>
+            <p class="tagline">The Undefeated Champion of Tic-Tac-Toe. Can you even land a draw?</p>
+        </header>
+
+        <!-- Scoreboard -->
+        <div class="scoreboard">
+            <div class="score-box rocky">
+                <span class="score-label">Rocky (Champion) 🏆</span>
+                <span class="score-val rocky-color" id="rockyWinsScore">0</span>
+            </div>
+            <div class="score-box draws">
+                <span class="score-label">Draws (Survived) 🛡️</span>
+                <span class="score-val draw-color" id="drawsScore">0</span>
+            </div>
+            <div class="score-box player">
+                <span class="score-label">You (Challenger) 🔒</span>
+                <span class="score-val player-color" id="playerWinsScore">0</span>
+            </div>
+        </div>
+
+        <!-- Rocky Dialogue Box -->
+        <div class="rocky-card">
+            <div class="rocky-avatar">🥊</div>
+            <div class="rocky-dialogue">
+                <span class="rocky-name">Rocky "The Iron AI"</span>
+                <p class="rocky-speech" id="rockySpeech">Welcome to my ring, kid! Toss the coin to see who gets the opening punch.</p>
+            </div>
+        </div>
+
+        <!-- Turn Status Indicator -->
+        <div class="turn-indicator" id="turnIndicator">
+            <span class="dot"></span>
+            <span id="turnText">Toss the coin to start the match</span>
+        </div>
+
+        <!-- STAGE 1: Coin Toss Arena -->
+        <div class="toss-arena" id="tossArena">
+            <h2 class="toss-title">🪙 The Opening Toss</h2>
+            <p class="toss-desc">Call Heads or Tails! If you win the bet, you strike first with 'X'. If you lose, Rocky takes the first shot.</p>
+
+            <div class="coin-stage">
+                <div class="coin" id="coin">
+                    <div class="coin-side coin-heads">
+                        <span class="coin-icon">👑</span>
+                        <span class="coin-text">HEADS</span>
+                    </div>
+                    <div class="coin-side coin-tails">
+                        <span class="coin-icon">🦅</span>
+                        <span class="coin-text">TAILS</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="toss-buttons">
+                <button class="toss-btn" id="btnHeads" data-choice="Heads">
+                    <span style="font-size: 1.4rem;">👑</span>
+                    <span>Bet HEADS</span>
+                </button>
+                <button class="toss-btn" id="btnTails" data-choice="Tails">
+                    <span style="font-size: 1.4rem;">🦅</span>
+                    <span>Bet TAILS</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- STAGE 2: Tic Tac Toe Board -->
+        <div class="board-arena hidden" id="boardArena">
+            <div class="board-wrapper">
+                <div class="grid" id="grid">
+                    <div class="cell" data-index="0"></div>
+                    <div class="cell" data-index="1"></div>
+                    <div class="cell" data-index="2"></div>
+                    <div class="cell" data-index="3"></div>
+                    <div class="cell" data-index="4"></div>
+                    <div class="cell" data-index="5"></div>
+                    <div class="cell" data-index="6"></div>
+                    <div class="cell" data-index="7"></div>
+                    <div class="cell" data-index="8"></div>
+                </div>
+            </div>
+
+            <div class="game-controls">
+                <button class="main-btn" id="rematchBtn">🔄 Rematch & Toss</button>
+                <button class="secondary-btn" id="resetScoreBtn">Clear Score</button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="tech-stack">
+                <span class="tech-pill">ASP.NET Core 7</span>
+                <span class="tech-pill">Minimax Algorithm</span>
+                <span class="tech-pill">Strategy Pattern</span>
+                <span class="tech-pill">Web Audio API</span>
+            </div>
+            <p>Built with Clean Architecture & Unbeatable AI Engine.</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/audio.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
