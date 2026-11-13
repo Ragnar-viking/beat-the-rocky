@@ -6,6 +6,10 @@ using BeatTheRocky.Api.Strategies;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Dynamically bind to cloud provider port (Render, Railway, Fly.io) or default to 8080
+var port = Environment.GetEnvironmentVariable("PORT") ?? "8080";
+builder.WebHost.UseUrls($"http://+:{port}");
+
 // Register Core & Domain Services (Dependency Injection)
 builder.Services.AddSingleton<IGameSessionRepository, InMemoryGameSessionRepository>();
 builder.Services.AddSingleton<IAiStrategy, UnbeatableMinimaxStrategy>();
